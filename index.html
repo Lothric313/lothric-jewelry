@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeeae2">
+  <meta name="description" content="Lothric SIGNUM — десять ювелирных историй: фирменная L, золотое сечение, египетские амулеты, античность и рыцарская геральдика. Демонстрационный сайт бренда.">
+  <title>Lothric — История, ставшая украшением</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/CormorantGaramond-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refinements.css">
+  <link rel="stylesheet" href="antique.css">
+  <link rel="stylesheet" href="sections.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="heritage.css">
+  <link rel="stylesheet" href="pendant.css">
+  <link rel="stylesheet" href="motion.css">
+  <link rel="stylesheet" href="search.css">
+  <script src="carousel.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="hero.js" defer></script>
+  <script src="smooth-scroll.js" defer></script>
+  <script src="pendant-physics.js" defer></script>
+  <script src="pendant-geometry.js" defer></script>
+  <script src="pendant.js" defer></script>
+  <script src="motion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Перейти к коллекции</a>
+  <!-- Mobile: menu, centered wordmark, search, and shopping bag. -->
+  <header class="header" id="header">
+    <button class="icon-button header-menu-toggle" data-panel="menu" aria-label="Открыть меню" aria-controls="panel" aria-expanded="false" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <a class="brand" href="#home" aria-label="Lothric — на главную"><span class="wordmark" role="img" aria-label="Lothric"></span></a>
+    <nav class="desktop-nav" aria-label="Основная навигация"><a href="#catalog">Каталог</a><a href="#about">О нас</a><a href="#reviews">Отзывы</a></nav>
+    <div class="header-utilities">
+    <div class="header-actions">
+      <div class="header-search" id="header-search">
+        <form class="search-bar" role="search" aria-label="Поиск украшений">
+          <button class="icon-button header-search-toggle" type="button" data-panel="search" aria-label="Поиск" aria-controls="search-popover" aria-expanded="false"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+          <div class="search-input-wrap" inert>
+            <label class="sr-only" for="search-input">Название, материал или символ</label>
+            <input id="search-input" type="search" placeholder="Найти украшение…" autocomplete="off" autocapitalize="none" enterkeyhint="search" aria-controls="search-results">
+            <button class="icon-button search-close" type="button" aria-label="Закрыть поиск"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+        </form>
+        <section class="search-popover" id="search-popover" aria-labelledby="search-title" inert>
+          <div class="search-heading"><div><p class="eyebrow">Ювелирный дом Lothric</p><h2 id="search-title">Коллекция SIGNUM</h2></div><span id="search-count" role="status" aria-live="polite" aria-atomic="true"></span></div>
+          <div id="search-results" class="search-results"></div>
+          <p class="search-footnote">Поиск по названию, материалу и историческому символу</p>
+        </section>
+      </div>
+      <button class="icon-button" data-panel="cart" aria-label="Корзина"><svg><use href="#i-bag"/></svg><span class="badge" id="cart-count" hidden>0</span></button>
+    </div></div>
+  </header>
+  <main>
+    <!-- 1. Independent image layers follow the scroll in both directions. -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-stage">
+        <img class="hero-background" src="assets/hero-back.png" alt="" width="1678" height="937" fetchpriority="high" draggable="false">
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-chain" src="assets/hero-chain.svg" alt="" width="1678" height="937" draggable="false">
+          <img class="hero-logo" src="assets/hero-logo.png" alt="" width="1947" height="823" fetchpriority="high" draggable="false">
+          <img class="hero-hand hero-hand-left" src="assets/hero-hands.png" alt="" width="1678" height="937" draggable="false">
+          <img class="hero-hand hero-hand-right" src="assets/hero-hands.png" alt="" width="1678" height="937" draggable="false">
+        </div>
+        <div class="hero-copy" id="hero-copy"><h1 id="hero-title">История, ставшая <em>украшением.</em></h1><a class="button button-dark hero-mobile-action" href="#catalog">Смотреть коллекцию <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-progress" aria-hidden="true"><span id="hero-progress"></span></div>
+      </div>
+    </section>
+    <!-- 2. Product data and filtering are defined in app.js. -->
+    <section class="catalog section-pad heritage-section" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading"><h2 id="catalog-title">Коллекция <em>SIGNUM.</em></h2></div>
+      <div class="catalog-toolbar"><div class="filters" role="group" aria-label="Категории украшений"><button class="filter active" data-filter="all" aria-pressed="true">Все украшения</button><button class="filter" data-filter="signature" aria-pressed="false">Монограмма L</button><button class="filter" data-filter="rings" aria-pressed="false">Кольца</button><button class="filter" data-filter="necklaces" aria-pressed="false">Подвески</button><button class="filter" data-filter="earrings" aria-pressed="false">Серьги</button><button class="filter" data-filter="brooches" aria-pressed="false">Броши</button></div></div>
+      <div class="catalog-visuals">
+        <svg class="history-ornament catalog-lily catalog-lily-left" aria-hidden="true" focusable="false"><use href="assets/historical-motifs.svg#fleur-de-lys"/></svg>
+        <svg class="history-ornament catalog-lily catalog-lily-right" aria-hidden="true" focusable="false"><use href="assets/historical-motifs.svg#fleur-de-lys"/></svg>
+        <div class="product-carousel" id="product-grid" role="region" aria-roledescription="карусель" aria-label="Коллекция украшений" tabindex="0"></div>
+      </div>
+      <div class="carousel-details"><button class="circle-button" id="product-prev" aria-label="Предыдущее украшение">←</button><div id="selected-product" aria-live="polite"></div><button class="circle-button" id="product-next" aria-label="Следующее украшение">→</button></div>
+    </section>
+    <!-- 3. Brand story, explicitly presented as a demonstration concept. -->
+    <section class="about brand-story section-pad heritage-section" id="about" aria-labelledby="about-title">
+      <svg class="history-ornament about-eye" aria-hidden="true" focusable="false"><use href="assets/historical-motifs.svg#wedjat"/></svg>
+      <div class="pendant-stage" tabindex="0" role="group" aria-label="Золотая подвеска с глазом Гора на объёмной цепочке. Потяните за подвеску или отдельное звено и отпустите. Стрелки раскачивают украшение; Escape отпускает его." aria-describedby="pendant-hint">
+        <img class="pendant-fallback" src="assets/wedjat-interactive.webp" alt="" aria-hidden="true" draggable="false" decoding="async">
+        <canvas class="pendant-canvas" aria-hidden="true"></canvas>
+        <svg class="pendant-hit-area" aria-hidden="true" focusable="false"><path class="pendant-hit pendant-hit-left"/><path class="pendant-hit pendant-hit-right"/><path class="pendant-hit pendant-hit-body"/></svg>
+        <p class="pendant-hint" id="pendant-hint">Потяните за цепочку</p>
+      </div>
+      <div class="brand-story-heading"><p class="eyebrow">О нас</p><h2 id="about-title">Красота<br>в <em>деталях.</em></h2></div>
+      <div class="brand-story-copy"><div class="brand-history"><strong>100</strong><span>лет работы<br>ювелирного дома</span></div><p class="brand-story-lead">Древние знаки.<br>Личные истории.</p><p>Мы ищем идеи в вещах, переживших века: египетских амулетах, античных монетах, рыцарской геральдике и старинных астрономических инструментах. Нас привлекают их пропорции, ритм линий и смысл, заключённый в небольшой форме.</p><p>В коллекции SIGNUM глаз Гора, уроборос и геральдическая лилия получают новое воплощение в золоте, камне и эмали. Мы сохраняем узнаваемый силуэт исторического знака и создаём украшение, которое становится частью вашей истории.</p><a class="story-link" href="#catalog" data-category-link="all">Знакомство с SIGNUM <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <!-- 4. Five demonstration reviews and a selected central Moscow location. -->
+    <section class="reviews section-pad heritage-section" id="reviews" aria-labelledby="reviews-title">
+      <img class="history-ornament reviews-serpent" src="assets/ouroboros-ornament.webp" alt="" aria-hidden="true" width="1254" height="1254" decoding="async" draggable="false">
+      <div class="review-heading"><h2 id="reviews-title">Отзывы о <em>Lothric.</em></h2><span class="demo-note">Демонстрационные отзывы</span></div>
+      <div class="community-layout">
+        <div class="community-sidebar">
+          <div class="review-summary" aria-label="Сводка отзывов">
+            <div class="review-stat"><span class="review-stat-label">Количество отзывов</span><strong id="review-count">1000+</strong></div>
+            <div class="review-stat"><span class="review-stat-label">Средняя оценка</span><strong id="review-average">4.9</strong><span class="rating-stars" role="img" aria-label="4,9 из 5"><span aria-hidden="true">★★★★★</span><span class="rating-stars-fill" style="width:98%" aria-hidden="true">★★★★★</span></span></div>
+          </div>
+          <figure class="location-card">
+            <div class="location-heading"><span class="eyebrow">Москва · центр</span></div>
+            <iframe class="location-map" title="Google Maps: Москва, Красная площадь" src="https://www.google.com/maps?q=55.7540%2C37.6204&amp;z=16&amp;hl=ru&amp;output=embed" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <figcaption><div><p class="location-address">Москва, Красная площадь</p><p class="location-note">Выбранная локация</p></div><a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=55.7540%2C37.6204" target="_blank" rel="noopener noreferrer" aria-label="Открыть Красную площадь в Google Maps в новой вкладке">Google Maps <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+        </div>
+        <ol class="customer-reviews" id="review-list" aria-label="Отзывы с именами авторов"></ol>
+      </div>
+    </section>
+
+    <!-- Contact form is a standalone section above the footer. -->
+    <section class="contact-section section-pad heritage-section" id="contacts" aria-labelledby="contact-title">
+      <svg class="history-ornament contact-scarab" aria-hidden="true" focusable="false"><use href="assets/historical-motifs.svg#scarab"/></svg>
+      <div class="contact-heading"><h2 id="contact-title">Свяжитесь <em>с нами.</em></h2><p>Расскажите, какое украшение вы ищете, или задайте свой вопрос.</p></div>
+      <form id="contact-form" class="contact-form">
+        <div class="contact-fields"><label for="contact-name">Ваше имя<input id="contact-name" name="name" autocomplete="name" type="text" required maxlength="80" placeholder="Имя"></label><label for="contact-email">Ваш e-mail<input id="contact-email" name="email" autocomplete="email" type="email" required maxlength="254" placeholder="name@example.com"></label></div>
+        <label for="contact-message">Ваше сообщение<textarea id="contact-message" name="message" rows="5" required maxlength="3000" placeholder="Что вы хотели бы нам написать?"></textarea></label>
+        <button class="button button-dark" type="submit">Отправить сообщение <span aria-hidden="true">↗</span></button>
+        <p class="contact-status" id="contact-status" role="status">Демонстрационная форма. Отправка пока не подключена.</p>
+      </form>
+    </section>
+  </main>
+  <!-- Footer: oversized original wordmark and navigation. -->
+  <footer class="footer section-pad heritage-section" id="site-footer">
+    <div class="footer-main"><a class="footer-brand" href="#home" aria-label="Lothric — на главную"><span class="wordmark" role="img" aria-label="Lothric"></span></a><div class="footer-links"><div><p class="eyebrow">Коллекция SIGNUM</p><a href="#catalog" data-category-link="all">Все украшения</a><a href="#catalog" data-category-link="signature">Монограмма L</a><a href="#catalog" data-category-link="rings">Кольца</a><a href="#catalog" data-category-link="necklaces">Подвески</a><a href="#catalog" data-category-link="earrings">Серьги</a><a href="#catalog" data-category-link="brooches">Броши</a></div><div><p class="eyebrow">Ювелирный дом</p><a href="#contacts">Связаться</a><a href="#reviews">Отзывы</a><button data-panel="care">Уход за украшениями</button></div><div><p class="eyebrow">Контакты</p><button data-panel="contacts">+1 444 555 9999</button><button data-panel="contacts">hello@lothric.example</button></div><div><p class="eyebrow">Следите за историями</p><button data-panel="social" data-social="Telegram">Telegram ↗</button><button data-panel="social" data-social="Pinterest">Pinterest ↗</button><button data-panel="social" data-social="VK">VK ↗</button></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year">2026</span> Lothric</span><button data-panel="privacy">Конфиденциальность</button><span>Демонстрационный сайт · концепты и цены</span><a href="#home">Наверх ↑</a></div>
+    <p class="footer-credit">made by Lothric</p>
+  </footer>
+  <dialog id="panel" class="panel"><div class="panel-heading"><span class="panel-brand wordmark" role="img" aria-label="Lothric"></span><button class="icon-button" id="close-panel" aria-label="Закрыть окно"><svg><use href="#i-close"/></svg></button></div><div id="panel-content"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol><symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol></svg>
+</body>
+</html>

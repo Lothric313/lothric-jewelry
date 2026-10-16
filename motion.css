@@ -1,0 +1,58 @@
+/* Subtle entrances; the hero artwork retains its own scroll choreography. */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 600ms ease, transform 600ms cubic-bezier(.22, 1, .36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .motion-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .motion-reveal:focus-within {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0ms;
+  }
+  .button, .circle-button, .icon-button, .story-link {
+    transition: background-color 220ms ease, color 220ms ease,
+      border-color 220ms ease, box-shadow 220ms ease, translate 220ms ease,
+      opacity 600ms ease, transform 600ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .button > span, .story-link > span {
+    display: inline-block;
+    transition: translate 220ms ease;
+  }
+  .button:active, .circle-button:active {
+    translate: 0 1px;
+  }
+  #selected-product > * {
+    animation: detail-appear 380ms ease both;
+  }
+  #selected-product .button { animation-delay: 60ms; }
+  .panel[open] {
+    animation: panel-appear 260ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .panel[open]::backdrop { animation: backdrop-appear 260ms ease; }
+
+  @media (hover: hover) {
+    .button:hover, .circle-button:enabled:hover, .icon-button:hover {
+      translate: 0 -2px;
+    }
+    .button:hover > span, .story-link:hover > span { translate: 3px -2px; }
+  }
+}
+
+@keyframes detail-appear {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes panel-appear {
+  from { opacity: 0; translate: 20px 0; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes backdrop-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

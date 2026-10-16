@@ -1,0 +1,28 @@
+# This repository publishes the static website. Local tools, original artwork,
+# generation records, screenshots, and QA files stay in this workspace.
+/*
+!/.gitignore
+!/.github/
+!/PUBLISHING.md
+!/index.html
+!/*.css
+!/*.js
+!/assets/
+/assets/*
+!/assets/eye-iris-blue-v1.webp
+!/assets/favicon.svg
+!/assets/fonts/
+!/assets/hero-back.png
+!/assets/hero-chain.svg
+!/assets/hero-hands.png
+!/assets/hero-logo.png
+!/assets/historical-motifs.svg
+!/assets/logo-cutout.png
+!/assets/logo-transparent.png
+!/assets/logo.jpg
+!/assets/lucifer.jpg
+!/assets/ouroboros-ornament.webp
+!/assets/signum/
+!/assets/wedjat-interactive.webp
+/assets/signum/*
+!/assets/signum/*.webp

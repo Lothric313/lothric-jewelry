@@ -1,0 +1,115 @@
+/* Warm, solid surfaces and serif typography. */
+:root {
+  --paper: #eee7d9;
+  --ink: #39352d;
+  --muted: #746d61;
+  --gold: #92794a;
+  --line: #cfc2aa;
+}
+body { background-color: var(--paper); }
+:is(.catalog, .about, .reviews, .contact-section, .footer, .panel) {
+  background-color: var(--surface, var(--paper));
+}
+.catalog { --surface: #eee8db; }
+.about { --surface: #e5ddcc; }
+.reviews { --surface: #f0e9dd; }
+.contact-section { --surface: #e9e1d2; border-top: 0; }
+.footer { --surface: #e1d7c5; }
+.panel { --surface: #eee7d9; }
+
+/* Plain photo frames without canvas textures or chipped edges. */
+:is(.carousel-image, .review-image, .atelier-image) {
+  position: relative;
+  background-color: #dfd4c0;
+}
+.carousel-image { padding: 9px; }
+.carousel-image img { width: 100%; height: 100%; object-fit: cover; filter: none; }
+.review-image { padding: 8px; }
+:is(.carousel-image, .review-image, .atelier-image) img {
+  filter: sepia(.14) saturate(.88) contrast(.97);
+}
+h2, #selected-product h3 { color: #443b2e; }
+#selected-product > * { animation: product-details-in .24s ease-out both; }
+@keyframes product-details-in {
+  from { opacity: .35; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+h2 em, .quote-mark { color: #927b50; }
+.button-dark { background: #443d31; color: #f5eee0; border: 1px solid #76664e; }
+.button-dark:hover, .footer .button-dark:hover { background: #62513b; color: #fff6e7; }
+.circle-button { border-color: #b6a487; color: #63543d; }
+.circle-button:hover { background: #63543d; color: #f5eee0; }
+.contact-form input, .contact-form textarea { border-bottom-color: #b09e7e; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #807669; opacity: 1; }
+.contact-form :is(input, textarea):focus-visible { outline: 1px solid #94794d; outline-offset: 7px; }
+.footer-links, .footer-bottom { border-color: #bfae90; }
+
+/* Mobile title and CTA share one bottom-aligned group. */
+@media (max-width: 899px) {
+  .hero-copy {
+    top: auto;
+    bottom: calc(clamp(28px, 7svh, 64px) + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .hero-copy h1 {
+    margin: 0 auto;
+    font-size: clamp(30px, 9vw, 40px);
+    line-height: 1.1;
+    color: #39352d;
+    text-shadow: 0 1px 4px #f8f2e6b3;
+  }
+  .hero-copy .hero-mobile-action {
+    position: static;
+    width: max-content;
+    max-width: 100%;
+    transform: none;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .header, .header.scrolled {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .header .desktop-nav a, .header .header-actions {
+    color: var(--ink);
+    text-shadow: none;
+  }
+  .header .desktop-nav a { font-weight: 500; }
+  .header .header-actions .icon-button { color: var(--gold); filter: none; }
+  .header .header-actions svg { stroke-width: 1.4; }
+  .header .wordmark { filter: none; }
+  .panel-search { font-size: 16px; }
+
+  /* A left-hand drawer keeps secondary links out of the compact header. */
+  .panel[data-view="menu"] {
+    inset: 0 auto 0 0;
+    width: min(88vw, 380px);
+    padding: 20px 26px max(28px, env(safe-area-inset-bottom));
+  }
+  .panel[data-view="menu"] .panel-heading { margin-bottom: 42px; }
+  .panel[data-view="menu"] .menu-caption { margin-bottom: 14px; color: var(--muted); }
+  .mobile-nav { display: grid; }
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 70px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font: 400 34px / 1.2 var(--serif);
+  }
+  .mobile-nav a span { font: 20px var(--sans); color: var(--gold); }
+  .mobile-nav a:hover { color: var(--gold); }
+}
+
+/* A short landscape viewport scrolls through the same clear vertical composition. */
+@media (max-width: 899px) and (max-height: 500px) and (orientation: landscape) {
+  .hero-copy {
+    bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+  .hero-copy h1 { max-width: none; font-size: 28px; }
+}
